@@ -8,6 +8,7 @@
   <style>
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -16,9 +17,42 @@
       color: #b1004f;
       font-size: 2em;
     }
+
+    button {
+      margin-top: 30px;
+      background-color: #ffb3c1;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 18px;
+      color: #b1004f;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background-color: #ff9bb0;
+    }
   </style>
 </head>
 <body>
   🌸 Radhe Radhe 🌸
+  <button id="btn">Нажми меня 🙏</button>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", () => {
+      // В Telegram-контексте покажем уведомление
+      if (tg?.showAlert) {
+        tg.showAlert("🌸 Радхе Радхе! 🌸");
+      } else {
+        alert("🌸 Радхе Радхе! 🌸");
+      }
+    });
+  </script>
 </body>
 </html>
