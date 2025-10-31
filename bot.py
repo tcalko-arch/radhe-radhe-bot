@@ -24,7 +24,7 @@ async def start_command(message: types.Message):
         inline_keyboard=[
             [types.InlineKeyboardButton(
                 text="Открыть приложение 🌸",
-                web_app=types.WebAppInfo(url="https://storied-wilton-eruditely.ngrok-free.dev")
+                web_app=types.WebAppInfo(url="https://radhe-radhe-bot.onrender.com")
             )]
         ]
     )
