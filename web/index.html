@@ -7,7 +7,6 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
     body {
-      margin: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -17,42 +16,6 @@
       font-family: "Poppins", sans-serif;
       color: #b1004f;
       font-size: 2em;
-      overflow: hidden;
-    }
-
-    .fade {
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #f8e1e7;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      font-size: 1.3em;
-      color: #b1004f;
-      animation: fadeOut 2s ease forwards;
-      animation-delay: 2.5s;
-    }
-
-    .loader p {
-      margin-top: 15px;
-      font-style: italic;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
     }
 
     button {
@@ -75,31 +38,15 @@
   </style>
 </head>
 <body>
-  <!-- Загрузочный экран -->
-  <div class="loader" id="loader">
-    🌸 Приложение пробуждается... 🙏
-    <p>Харе Кришна, пожалуйста, подожди немного 💫</p>
-  </div>
-
-  <!-- Основное содержимое -->
-  <div id="content" class="fade">
-    🌸 Radhe Radhe 🌸
-    <button id="btn">Нажми меня 🙏</button>
-  </div>
+  🌸 Radhe Radhe 🌸
+  <button id="btn">Нажми меня 🙏</button>
 
   <script>
     const tg = window.Telegram.WebApp;
     const btn = document.getElementById("btn");
 
-    // Через пару секунд убираем экран загрузки
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("content").classList.remove("fade");
-      }, 3000);
-    });
-
     btn.addEventListener("click", () => {
+      // В Telegram-контексте покажем уведомление
       if (tg?.showAlert) {
         tg.showAlert("🌸 Радхе Радхе! 🌸");
       } else {
